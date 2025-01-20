@@ -1,0 +1,73 @@
+/* Allgemeines Styling */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #87CEEB; /* Himmelblau */
+  font-family: Arial, sans-serif;
+  flex-direction: column;
+}
+
+.container {
+  text-align: center;
+  position: relative;
+}
+
+.title {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 2em;
+  color: #333;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  background-color: #32CD32; /* Grasgrün */
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: none;
+  transition: all 1s ease-in-out;
+}
+
+.instructions {
+  margin-top: 20px;
+  font-size: 1.5em;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .circle {
+    width: 120px;
+    height: 120px;
+  }
+
+  .title {
+    font-size: 1.5em;
+  }
+
+  .instructions {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .circle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .title {
+    font-size: 1.2em;
+  }
+
+  .instructions {
+    font-size: 1em;
+  }
+}
