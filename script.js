@@ -1,60 +1,103 @@
-const circle = document.getElementById('circle');
-const instructions = document.getElementById('instructions');
-const countdown = document.getElementById('countdown');
-const inhaleTimeInput = document.getElementById('inhaleTime');
-const holdTimeInput = document.getElementById('holdTime');
-const exhaleTimeInput = document.getElementById('exhaleTime');
-const startButton = document.getElementById('startButton');
-
-let step = 0; // Phasen: 0 = Einatmen, 1 = Halten, 2 = Ausatmen
-
-function startCountdown(duration) {
-  let timeLeft = duration;
-  countdown.textContent = timeLeft;
-
-  const timer = setInterval(() => {
-    timeLeft--;
-    countdown.textContent = timeLeft;
-
-    if (timeLeft <= 0) {
-      clearInterval(timer);
-    }
-  }, 1000);
+/* Allgemeines Styling */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #87CEEB; /* Himmelblau */
+  font-family: Arial, sans-serif;
+  flex-direction: column;
 }
 
-function animateBreathingCustom(inhale, hold, exhale) {
-  function breathingStep() {
-    if (step === 0) {
-      instructions.textContent = `Atme ein... (${inhale} Sekunden)`;
-      circle.style.transform = 'scale(1.5)';
-      circle.style.backgroundColor = '#32CD32'; // Frühlingsgrasgrün
-      startCountdown(inhale);
-      step = 1;
-      setTimeout(breathingStep, inhale * 1000);
-    } else if (step === 1) {
-      instructions.textContent = `Halte den Atem an... (${hold} Sekunden)`;
-      circle.style.transform = 'scale(1.5)';
-      circle.style.backgroundColor = '#FFD700'; // Sommergelb
-      startCountdown(hold);
-      step = 2;
-      setTimeout(breathingStep, hold * 1000);
-    } else if (step === 2) {
-      instructions.textContent = `Atme aus... (${exhale} Sekunden)`;
-      circle.style.transform = 'scale(1)';
-      circle.style.backgroundColor = '#FF8C00'; // Herbstorange
-      startCountdown(exhale);
-      step = 0;
-      setTimeout(breathingStep, exhale * 1000);
-    }
+.container {
+  text-align: center;
+}
+
+.title {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.settings {
+  margin-bottom: 20px;
+  font-size: 1em;
+}
+
+.settings label {
+  margin-right: 10px;
+}
+
+.settings input {
+  width: 50px;
+}
+
+.settings button {
+  padding: 5px 10px;
+  font-size: 1em;
+  cursor: pointer;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+}
+
+.circle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  background-color: #32CD32; /* Grasgrün */
+  border-radius: 50%;
+  transition: all 1s ease-in-out; /* Weiche Animation */
+}
+
+.instructions {
+  margin-top: 10px;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.countdown {
+  margin-top: 10px;
+  font-size: 2em;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .circle {
+    width: 120px;
+    height: 120px;
   }
-  breathingStep();
+
+  .title {
+    font-size: 1.5em;
+  }
+
+  .instructions {
+    font-size: 1.2em;
+  }
 }
 
-startButton.addEventListener('click', () => {
-  const inhaleTime = parseInt(inhaleTimeInput.value, 10) || 4;
-  const holdTime = parseInt(holdTimeInput.value, 10) || 6;
-  const exhaleTime = parseInt(exhaleTimeInput.value, 10) || 8;
+@media (max-width: 480px) {
+  .circle {
+    width: 100px;
+    height: 100px;
+  }
 
-  instructions.textContent = 'Bereit? Los geht’s!';
-  animateBreathingCustom(inhaleTime, holdTime, exhaleTime);
-});
+  .title {
+    font-size: 1.2em;
+  }
+
+  .instructions {
+    font-size: 1em;
+  }
+      }
