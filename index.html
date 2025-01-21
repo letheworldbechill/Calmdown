@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="container">
-    <h1 class="title">4-7-8 Atemübung</h1>
+    <h1 class="title">4-6-8 Atemübung</h1>
     <div class="circle-container">
       <div class="circle" id="circle"></div>
     </div>
@@ -24,6 +24,11 @@
     <label>Ausatmen (Sek.): <input type="number" id="exhaleTime" value="8"></label>
     <button id="startButton" class="start-button">Starten</button>
   </div>
+
+  <!-- Audio-Elemente -->
+  <audio id="inhaleSound" src="inhale.mp3" hidden></audio>
+  <audio id="holdSound" src="hold.mp3" hidden></audio>
+  <audio id="exhaleSound" src="exhale.mp3" hidden></audio>
 
   <script src="script.js"></script>
 </body>
