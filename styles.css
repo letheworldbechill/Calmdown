@@ -8,6 +8,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #87CEEB; /* Himmelblau */
+  box-sizing: border-box;
 }
 
 body.dark-mode {
@@ -19,18 +20,12 @@ body.dark-mode .circle {
   border-color: white;
 }
 
-body.dark-mode .settings-button,
-body.dark-mode .start-button,
-body.dark-mode .darkmode-button {
-  background-color: #555;
-  color: white;
-}
-
 .container {
   text-align: center;
   width: 100%;
   height: 100%;
   position: relative;
+  box-sizing: border-box;
 }
 
 .title {
@@ -44,22 +39,23 @@ body.dark-mode .darkmode-button {
 
 .circle-container {
   width: 100%;
-  height: 80%;
+  height: calc(100% - 150px); /* Platz für Titel, Countdown und Buttons */
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  box-sizing: border-box;
 }
 
 .circle {
-  width: 50%;
-  height: 50%;
-  max-width: 80vmin;
-  max-height: 80vmin;
-  background-color: #32CD32;
-  border-radius: 50%;
-  border: 10px solid gold;
-  transition: all 1s ease-in-out;
+  width: calc(80vmin - 20px); /* 80% des kleineren Bildschirmbereichs mit Abstand */
+  height: calc(80vmin - 20px); /* Höhe gleich der Breite */
+  max-width: calc(100% - 40px); /* Abstand von 20px zu den Rändern */
+  max-height: calc(100% - 40px); /* Abstand von 20px zu den Rändern */
+  background-color: #32CD32; /* Grasgrün */
+  border-radius: 50%; /* Perfekt rund */
+  border: 10px solid gold; /* Goldener Rand */
+  transition: all 1s ease-in-out; /* Sanfte Übergänge */
 }
 
 .progress-ring {
