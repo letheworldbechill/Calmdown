@@ -10,6 +10,22 @@ body {
   background-color: #87CEEB; /* Himmelblau */
 }
 
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: white;
+}
+
+body.dark-mode .circle {
+  border-color: white;
+}
+
+body.dark-mode .settings-button,
+body.dark-mode .start-button,
+body.dark-mode .darkmode-button {
+  background-color: #555;
+  color: white;
+}
+
 .container {
   text-align: center;
   width: 100%;
@@ -32,32 +48,45 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .circle {
-  width: 50%; /* Startgröße des Kreises */
+  width: 50%;
   height: 50%;
   max-width: 80vmin;
   max-height: 80vmin;
-  background-color: #32CD32; /* Grasgrün */
+  background-color: #32CD32;
   border-radius: 50%;
-  border: 10px solid gold; /* Goldener Rand */
-  transition: all 1s ease-in-out; /* Sanfte Übergänge */
+  border: 10px solid gold;
+  transition: all 1s ease-in-out;
+}
+
+.progress-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .instructions {
   margin-top: 10px;
   font-size: 1.5em;
-  color: #333;
 }
 
 .countdown {
   margin-top: 10px;
   font-size: 2em;
-  color: #333;
 }
 
-.settings-button {
+.motivation {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #666;
+}
+
+.settings-button,
+.darkmode-button {
   margin-top: 20px;
   padding: 10px 20px;
   font-size: 1em;
@@ -84,13 +113,11 @@ body {
 .settings-page h1 {
   margin-top: 20px;
   font-size: 2em;
-  color: #333;
 }
 
 .settings-page label {
   margin: 10px 0;
   display: block;
-  font-size: 1em;
 }
 
 .settings-page input {
