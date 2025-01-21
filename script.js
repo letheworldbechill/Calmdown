@@ -1,13 +1,16 @@
 const circle = document.getElementById('circle');
 const instructions = document.getElementById('instructions');
 const countdown = document.getElementById('countdown');
+const settingsButton = document.getElementById('settingsButton');
+const settingsPage = document.getElementById('settingsPage');
+const startButton = document.getElementById('startButton');
 const inhaleTimeInput = document.getElementById('inhaleTime');
 const holdTimeInput = document.getElementById('holdTime');
 const exhaleTimeInput = document.getElementById('exhaleTime');
-const startButton = document.getElementById('startButton');
 
 let step = 0; // Phasen: 0 = Einatmen, 1 = Halten, 2 = Ausatmen
 
+// Countdown-Anzeige
 function startCountdown(duration) {
   let timeLeft = duration;
   countdown.textContent = timeLeft;
@@ -22,6 +25,7 @@ function startCountdown(duration) {
   }, 1000);
 }
 
+// Atemübungs-Animation
 function animateBreathingCustom(inhale, hold, exhale) {
   function breathingStep() {
     if (step === 0) {
@@ -52,11 +56,18 @@ function animateBreathingCustom(inhale, hold, exhale) {
   breathingStep();
 }
 
+// Einstellungen-Seite anzeigen
+settingsButton.addEventListener('click', () => {
+  settingsPage.style.display = 'flex';
+});
+
+// Übung starten und Einstellungen übernehmen
 startButton.addEventListener('click', () => {
   const inhaleTime = parseInt(inhaleTimeInput.value, 10) || 4;
   const holdTime = parseInt(holdTimeInput.value, 10) || 6;
   const exhaleTime = parseInt(exhaleTimeInput.value, 10) || 8;
 
+  settingsPage.style.display = 'none'; // Einstellungen schließen
   instructions.textContent = 'Bereit? Los geht’s!';
   animateBreathingCustom(inhaleTime, holdTime, exhaleTime);
 });
