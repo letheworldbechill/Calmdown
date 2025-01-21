@@ -27,16 +27,18 @@ body {
 }
 
 .circle-container {
-  width: 80%;
-  height: 100%;
+  width: 100%;
+  height: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .circle {
-  width: 80vmin; /* 80% des kleineren Bildschirmdurchmessers */
-  height: 80vmin;
+  width: 50%; /* Startgröße des Kreises */
+  height: 50%;
+  max-width: 80vmin;
+  max-height: 80vmin;
   background-color: #32CD32; /* Grasgrün */
   border-radius: 50%;
   border: 10px solid gold; /* Goldener Rand */
