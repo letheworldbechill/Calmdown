@@ -13,20 +13,16 @@ body {
 
 .container {
   text-align: center;
-  position: relative;
 }
 
 .title {
-  position: absolute;
-  top: 20px;
-  width: 100%;
-  text-align: center;
   font-size: 2em;
   color: #333;
+  margin-bottom: 20px;
 }
 
 .settings {
-  margin: 20px 0;
+  margin-bottom: 20px;
   font-size: 1em;
 }
 
@@ -48,18 +44,23 @@ body {
   border-radius: 5px;
 }
 
+.circle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
 .circle {
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   background-color: #32CD32; /* Grasgrün */
   border-radius: 50%;
-  margin: 0 auto;
-  animation: none;
-  transition: transform 1s ease-in-out, background-color 1s ease-in-out;
+  transition: all 1s ease-in-out; /* Weiche Animation */
 }
 
 .instructions {
-  margin-top: 20px;
+  margin-top: 10px;
   font-size: 1.5em;
   color: #333;
 }
