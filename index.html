@@ -8,12 +8,29 @@
 </head>
 <body>
   <div class="container">
-    <h1 class="title">4-6-8 Atemübung</h1>
+    <h1 class="title">4-7-8 Atemübung</h1>
     <div class="circle-container">
       <div class="circle" id="circle"></div>
+      <div class="progress-ring">
+        <svg width="120" height="120">
+          <circle
+            cx="60"
+            cy="60"
+            r="50"
+            stroke="#FFD700"
+            stroke-width="10"
+            fill="none"
+            stroke-dasharray="314"
+            stroke-dashoffset="0"
+            id="progressCircle"
+          ></circle>
+        </svg>
+      </div>
     </div>
     <div class="instructions" id="instructions">Bereit?</div>
     <div class="countdown" id="countdown"></div>
+    <div class="motivation" id="motivation"></div>
+    <button id="startButton" class="start-button">Starten</button>
     <button id="settingsButton" class="settings-button">Einstellungen</button>
     <button id="darkModeToggle" class="darkmode-button">Dunkelmodus</button>
   </div>
@@ -21,10 +38,14 @@
   <div class="settings-page" id="settingsPage">
     <h1>Einstellungen</h1>
     <label>Einatmen (Sek.): <input type="number" id="inhaleTime" value="4"></label>
-    <label>Halten (Sek.): <input type="number" id="holdTime" value="6"></label>
+    <label>Halten (Sek.): <input type="number" id="holdTime" value="7"></label>
     <label>Ausatmen (Sek.): <input type="number" id="exhaleTime" value="8"></label>
-    <button id="startButton" class="start-button">Starten</button>
   </div>
+
+  <!-- Unsichtbare Audio-Elemente -->
+  <audio id="inhaleSound" src="inhale.mp3" hidden></audio>
+  <audio id="holdSound" src="hold.mp3" hidden></audio>
+  <audio id="exhaleSound" src="exhale.mp3" hidden></audio>
 
   <script src="script.js"></script>
 </body>
